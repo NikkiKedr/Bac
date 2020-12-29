@@ -1,0 +1,102 @@
+<html lang="">
+<link rel="stylesheet" href="/styles/style.css">
+<head>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <title></title>
+
+<script type="text/javascript">
+    $(document).ready(function ()
+    {
+     function loadSearchResult() {
+        $.ajax({
+            type: 'get',
+            url: '/giveAll',
+            success: function (data) {
+                $('#main').html(data);
+            }
+        });
+    }
+        $(document).ready(function (){
+            loadSearchResult();
+            setInterval(' loadSearchResult()',1000);
+        });
+    });
+
+
+
+
+</script>
+</head>
+
+
+
+
+<p><a href="/main">Get main UI</a></p>
+<div>
+    <table class="cinereousTable" id="main">
+        <th> <div>ČAS
+            {{#temperatures}}
+                <div>
+                    <i>{{date}}</i>
+
+                </div>
+            {{/temperatures}}
+        </div></th>
+
+        <th><div>
+            <div>VLHKOST
+                {{#humidities}}
+                    <div>
+                        <i>{{humidity}}</i>
+
+                    </div>
+                {{/humidities}}
+            </div>
+        </div></th>
+
+        <th><div>
+            <div>TEPLOTA
+                {{#temperatures}}
+                    <div>
+                        <i>{{temperature}}</i>
+
+                    </div>
+                {{/temperatures}}
+            </div>
+        </div></th>
+        <th><div>
+            <div>Motor 1
+{{#motorOnes}}
+                    <div>
+                        <i>{{povorot}}</i>
+
+                    </div>
+{{/motorOnes}}
+            </div>
+        </div></th>
+        <th><div>
+            <div>Motor 2
+{{#motorTwos}}
+    <div>
+
+        <i>{{povorot}}</i>
+
+    </div>
+{{/motorTwos}}
+
+            </div>
+        </div></th>
+    </table>
+
+</div>
+
+
+
+<body>
+
+
+
+</body>
+
+</html>

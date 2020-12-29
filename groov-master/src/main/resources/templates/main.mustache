@@ -1,0 +1,105 @@
+<html lang="">
+<link rel="stylesheet" href="/styles/style.css">
+<head>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <title></title>
+
+    <script type="text/javascript">
+
+            function loadSearchTemp() {
+
+                $.ajax({
+                    type: 'get',
+                    url: '/mainKoll',
+
+                    success: function (data) {
+                            $('#main').html(data);
+                    }
+                });
+            }
+            $(document).ready(function (){
+                setTimeout('loadSearchTemp()',3000);
+
+            });
+
+
+
+
+
+    </script>
+</head>
+<script>
+
+
+
+
+</script>
+<body>
+<p><a href="/giveAll">Get all data</a></p>
+<table class="cinereousTable" id="main">
+    <thead>
+    <tr>
+        <th>Sensors</th>
+        <th>Current</th>
+        <th>Change to</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td>Temperature</td>
+        <td id="ooo"> 27 </td>
+        <td>
+            <form action="/addTemp" method="get">
+                <input type="text" size="15" name="temp">
+                <input type="submit" value="Change">
+
+            </form>
+        </td>
+
+    </tr>
+    <tr>
+        <td>Humidity</td>
+        <td> 76 %  </td>
+        <td>
+            <form action="/addHumi" method="get">
+                <input type="text" size="15" name="humi">
+                <input type="submit" value="Change">
+            </form>
+        </td>
+
+    </tr>
+    <tr>
+        <td>Motor 1</td>
+        <td>CLOSE</td>
+        <td>
+            <form action="/Motor1" method="get">
+            <input type="text" size="15" name="motor">
+            <input type="submit" value="Change">
+            </form>
+        </td>
+
+    </tr>
+    <tr>
+        <td>Motor2</td>
+        <td>OPEN</td>
+        <td>
+            <form action="/Motor2" method="get">
+            <input type="text" size="15" name="motor">
+            <input type="submit" value="Change">
+            </form>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+</body>
+
+</html>
