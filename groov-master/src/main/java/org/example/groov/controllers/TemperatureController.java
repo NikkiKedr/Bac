@@ -25,6 +25,7 @@ public class TemperatureController {
         Date date = new Date();
         Temperature temperature = new Temperature(temp,date);
         temperatureRepo.save(temperature);
+
         TemperatureCurrent temperatureCurrent = new TemperatureCurrent(temp,date);
         temperatureCurrentRepo.deleteAll();
         temperatureCurrentRepo.save(temperatureCurrent);
